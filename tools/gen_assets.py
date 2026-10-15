@@ -114,6 +114,10 @@ def hero():
 .pill:hover .alt { opacity: 1 }
 .pill rect { transition: stroke-opacity .25s; pointer-events: all }
 .pill:hover rect { stroke-opacity: 1 }
+.playchip rect { transition: fill .2s }
+.playchip:hover rect { fill: #9171FF }
+.playchip text { transition: fill .2s }
+.playchip:hover text { fill: #FFFFFF }
 </style>"""
 
     return f'''{head(w, h, "VASTOBB — retro arcade banner", "Animated retro x Material 3 banner: boot sequence, glitch storm, hover-reactive chips")}
@@ -123,7 +127,6 @@ def hero():
   <radialGradient id="blobC"><stop offset="0" stop-color="{S}" stop-opacity=".34"/><stop offset="1" stop-color="{S}" stop-opacity="0"/></radialGradient>
   <radialGradient id="blobM"><stop offset="0" stop-color="{T}" stop-opacity=".3"/><stop offset="1" stop-color="{T}" stop-opacity="0"/></radialGradient>
   <linearGradient id="metaLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{P}" stop-opacity="0"/><stop offset=".5" stop-color="{P}" stop-opacity=".55"/><stop offset="1" stop-color="{S}" stop-opacity="0"/></linearGradient>
-  <linearGradient id="playg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{P}"/><stop offset="1" stop-color="{S}"/></linearGradient>
   <radialGradient id="vig"><stop offset=".62" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity=".5"/></radialGradient>
   <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="3" height="1" fill="#FFFFFF" opacity="0.035"/></pattern>
   <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter>
@@ -207,10 +210,10 @@ def hero():
 
 <text x="41" y="188" font-size="16" letter-spacing="0.6" fill="{GREY}">android internals · virtual displays · reverse engineering · graphics</text>
 
-<g class="chip">
-  <rect x="878" y="38" width="106" height="26" rx="13" fill="url(#playg)"/>
-  <text x="931" y="55" font-size="12.5" font-weight="700" fill="#0B0D13" text-anchor="middle">▶ PLAY</text>
-  <animate attributeName="opacity" values="1;.75;1" dur="2.2s" repeatCount="indefinite"/>
+<g class="playchip">
+  <rect x="890" y="38" width="94" height="26" rx="13" fill="{P}"/>
+  <text x="937" y="55" font-size="12.5" font-weight="700" fill="#0B0D13" text-anchor="middle">▶ play</text>
+  <animate attributeName="opacity" values="1;.82;1" dur="2.6s" repeatCount="indefinite"/>
 </g>
 
 <g>
@@ -270,7 +273,7 @@ def hero():
 
 <line x1="40" y1="382" x2="984" y2="382" stroke="url(#metaLine)"/>
 <text x="40" y="396" font-size="12" fill="{DIM}">© 2026 · built by hand in a terminal</text>
-<text x="984" y="396" font-size="12" fill="{DIM}" text-anchor="end">amoled · 60fps · click anywhere → arcade</text>
+<text x="984" y="396" font-size="12" fill="{DIM}" text-anchor="end">amoled · 60fps · click → arcade</text>
 
 <rect width="{w}" height="{h}" fill="url(#vig)" pointer-events="none"/>
 <rect x="0" y="-3" width="{w}" height="{h+6}" fill="url(#scan)" pointer-events="none">
@@ -290,13 +293,13 @@ def hero():
 def card_files():
     """Four separate hover-reactive cards, each wrapped in a real link in the README."""
     defs = [
-        ("card-kuro.svg", P, "STAGE 01", "kuro", "isolated app vault · import, run, forget",
+        ("card-kuro.svg", P, "01", "kuro", "isolated app vault · import, run, forget",
          "KOTLIN·COMPOSE", "4.8k", "63 files · 5 workflows", "github.com/vastobb/kuro", 40, 12),
-        ("card-shadowauto.svg", S, "STAGE 02", "ShadowAuto-Build", "virtual displays driven by tool calls",
+        ("card-shadowauto.svg", S, "02", "ShadowAuto-Build", "virtual displays driven by tool calls",
          "JAVA·C++·PY", "42.9k", "268 files · ci pipeline", "github.com/vastobb/ShadowAuto-Build", 40, 12),
-        ("card-fedora.svg", T, "STAGE 03", "fedora", ".so loader RE — ghidra runs in CI",
+        ("card-fedora.svg", T, "03", "fedora", ".so loader RE · ghidra runs in CI",
          "C++·PYTHON", "3.0k", "26 files · 2 workflows", "github.com/vastobb/fedora", 40, 12),
-        ("card-onigiri.svg", AMBER, "STAGE 04", "onigiri", "temporal renderer for phone GPUs",
+        ("card-onigiri.svg", "#FF9FE5", "04", "onigiri", "temporal renderer for phone GPUs",
          "JAVA·GLSL", "4.9k", "32 files · shader gate", "github.com/vastobb/onigiri", 40, 12),
     ]
     out = []
@@ -335,24 +338,15 @@ def card_files():
 
 # ============================================================== play.svg ====
 def play_button():
-    w, h = 384, 74
-    return f'''{head(w, h, "press start", "button linking to the live arcade")}
+    w, h = 238, 58
+    return f'''{head(w, h, "play", "opens the arcade")}
 <style>
-.btnrect {{ transition: filter .25s }}
-.play:hover .btnrect {{ filter: drop-shadow(0 8px 24px rgba(124,77,255,.65)) }}
-.pulse {{ animation: pip 2s ease-in-out infinite }}
-@keyframes pip {{ 0%,100% {{ opacity:.5 }} 50% {{ opacity:1 }} }}
+.play rect {{ transition: fill .2s }}
+.play:hover rect {{ fill: #9171FF }}
 </style>
-<defs>
-  <linearGradient id="pg" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0" stop-color="{P}"/><stop offset=".55" stop-color="{S}"/><stop offset="1" stop-color="{T}"/>
-  </linearGradient>
-</defs>
 <g class="play" cursor="pointer">
-  <rect class="btnrect" x="0" y="0" width="{w}" height="{h}" rx="24" fill="url(#pg)"/>
-  <rect class="pulse" x="4" y="4" width="{w-8}" height="{h-8}" rx="20" fill="none" stroke="#FFFFFF" stroke-opacity=".35"/>
-  <text x="{w/2}" y="32" font-size="17" font-weight="700" fill="#0B0D13" text-anchor="middle" letter-spacing="2">▶ PRESS START</text>
-  <text x="{w/2}" y="52" font-size="10.5" fill="#0B0D13" text-anchor="middle" opacity=".75" letter-spacing="1">vastobb.github.io/vastobb — real pac-man inside</text>
+  <rect x="1" y="1" width="{w-2}" height="{h-2}" rx="17" fill="{P}"/>
+  <text x="{w/2}" y="36" font-size="18" font-weight="700" fill="#0B0D13" text-anchor="middle" letter-spacing="1">▶ play</text>
 </g>
 </svg>
 '''

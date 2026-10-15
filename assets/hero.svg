@@ -6,7 +6,6 @@
   <radialGradient id="blobC"><stop offset="0" stop-color="#00D4FF" stop-opacity=".34"/><stop offset="1" stop-color="#00D4FF" stop-opacity="0"/></radialGradient>
   <radialGradient id="blobM"><stop offset="0" stop-color="#33E1B5" stop-opacity=".3"/><stop offset="1" stop-color="#33E1B5" stop-opacity="0"/></radialGradient>
   <linearGradient id="metaLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7C4DFF" stop-opacity="0"/><stop offset=".5" stop-color="#7C4DFF" stop-opacity=".55"/><stop offset="1" stop-color="#00D4FF" stop-opacity="0"/></linearGradient>
-  <linearGradient id="playg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7C4DFF"/><stop offset="1" stop-color="#00D4FF"/></linearGradient>
   <radialGradient id="vig"><stop offset=".62" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity=".5"/></radialGradient>
   <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="3" height="1" fill="#FFFFFF" opacity="0.035"/></pattern>
   <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter>
@@ -31,6 +30,10 @@
 .pill:hover .alt { opacity: 1 }
 .pill rect { transition: stroke-opacity .25s; pointer-events: all }
 .pill:hover rect { stroke-opacity: 1 }
+.playchip rect { transition: fill .2s }
+.playchip:hover rect { fill: #9171FF }
+.playchip text { transition: fill .2s }
+.playchip:hover text { fill: #FFFFFF }
 </style>
 
 <rect width="1024" height="410" fill="url(#bg)" pointer-events="none"/>
@@ -121,10 +124,10 @@
 
 <text x="41" y="188" font-size="16" letter-spacing="0.6" fill="#9AA3B8">android internals · virtual displays · reverse engineering · graphics</text>
 
-<g class="chip">
-  <rect x="878" y="38" width="106" height="26" rx="13" fill="url(#playg)"/>
-  <text x="931" y="55" font-size="12.5" font-weight="700" fill="#0B0D13" text-anchor="middle">▶ PLAY</text>
-  <animate attributeName="opacity" values="1;.75;1" dur="2.2s" repeatCount="indefinite"/>
+<g class="playchip">
+  <rect x="890" y="38" width="94" height="26" rx="13" fill="#7C4DFF"/>
+  <text x="937" y="55" font-size="12.5" font-weight="700" fill="#0B0D13" text-anchor="middle">▶ play</text>
+  <animate attributeName="opacity" values="1;.82;1" dur="2.6s" repeatCount="indefinite"/>
 </g>
 
 <g>
@@ -207,7 +210,7 @@
 
 <line x1="40" y1="382" x2="984" y2="382" stroke="url(#metaLine)"/>
 <text x="40" y="396" font-size="12" fill="#6C7387">© 2026 · built by hand in a terminal</text>
-<text x="984" y="396" font-size="12" fill="#6C7387" text-anchor="end">amoled · 60fps · click anywhere → arcade</text>
+<text x="984" y="396" font-size="12" fill="#6C7387" text-anchor="end">amoled · 60fps · click → arcade</text>
 
 <rect width="1024" height="410" fill="url(#vig)" pointer-events="none"/>
 <rect x="0" y="-3" width="1024" height="416" fill="url(#scan)" pointer-events="none">
