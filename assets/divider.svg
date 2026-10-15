@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="44" viewBox="0 0 1024 44" role="img" font-family='ui-monospace, &quot;SFMono-Regular&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;, monospace'>
+<title>section divider</title><desc>marching dashes and three pulsing diamonds</desc>
+<line x1="40" y1="22" x2="424" y2="22" stroke="#7C4DFF" opacity=".45" stroke-dasharray="3 11" stroke-linecap="round" stroke-width="2" fill="none">
+  <animate attributeName="stroke-dashoffset" values="0;14" dur="0.9s" repeatCount="indefinite"/>
+</line>
+<line x1="600" y1="22" x2="984" y2="22" stroke="#00D4FF" opacity=".4" stroke-dasharray="3 11" stroke-linecap="round" stroke-width="2" fill="none">
+  <animate attributeName="stroke-dashoffset" values="14;0" dur="0.9s" repeatCount="indefinite"/>
+</line>
+<rect x="473" y="17" width="10" height="10" rx="2" fill="#7C4DFF" transform="rotate(45 478 22)">
+  <animate attributeName="opacity" values=".35;1;.35" dur="2.4s" repeatCount="indefinite"/>
+</rect>
+<rect x="507" y="17" width="10" height="10" rx="2" fill="#00D4FF" transform="rotate(45 512 22)">
+  <animate attributeName="opacity" values=".35;1;.35" dur="2.4s" begin="-0.8s" repeatCount="indefinite"/>
+</rect>
+<rect x="541" y="17" width="10" height="10" rx="2" fill="#33E1B5" transform="rotate(45 546 22)">
+  <animate attributeName="opacity" values=".35;1;.35" dur="2.4s" begin="-1.6s" repeatCount="indefinite"/>
+</rect>
+</svg>

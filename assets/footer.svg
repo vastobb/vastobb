@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="110" viewBox="0 0 1024 110" role="img" font-family='ui-monospace, &quot;SFMono-Regular&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;, monospace'>
+<title>loading next build</title><desc>retro loading bar animation</desc>
+<defs>
+  <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7C4DFF"/><stop offset=".55" stop-color="#00D4FF"/><stop offset="1" stop-color="#33E1B5"/></linearGradient>
+</defs>
+<text x="434" y="36" font-size="13" fill="#9AA3B8" letter-spacing="1">LOADING NEXT BUILD</text>
+<rect x="600" y="24" width="8" height="14" fill="#33E1B5">
+  <animate attributeName="opacity" values="1;0;1" keyTimes="0;.5;1" dur="1s" calcMode="discrete" repeatCount="indefinite"/>
+</rect>
+<rect x="312" y="56" width="400" height="12" rx="6" fill="#12151D" stroke="#2A2F3D"/>
+<rect x="315" y="59" width="36" height="6" rx="3" fill="url(#bar)">
+  <animate attributeName="width" values="36;358;36" keyTimes="0;.6;1" keySplines=".45 0 .55 1;.45 0 .55 1" calcMode="spline" dur="7s" repeatCount="indefinite"/>
+</rect>
+<text x="512" y="94" font-size="12" fill="#6C7387" text-anchor="middle">INSERT COIN ▸ <tspan fill="#7FE3FF">github.com/vastobb</tspan></text>
+</svg>
