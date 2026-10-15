@@ -12,26 +12,15 @@ Android systems tinkerer on Fedora. I build software that makes a phone behave l
 
 ### `~$ ls ~/projects`
 
-**`kuro`** — premium Android vault. Import an APK, run it isolated. Material 3 Compose UI, AMOLED dark-first, real logging and screenshot tests — and zero local Gradle, ever.
-<br>`Kotlin · Compose · GitHub Actions`
+<div align="center"><img src="assets/cards.svg" alt="kuro, ShadowAuto-Build, fedora, onigiri" width="100%"></div>
+
+<p align="center"><sub>hover the cards — they light up</sub></p>
 
 <p align="center">
-  <a href="https://github.com/vastobb/kuro"><img height="115" src="https://github-readme-stats.vercel.app/api/pin/?username=vastobb&amp;repo=kuro&amp;bg_color=0B0D13&amp;title_color=9A7DFF&amp;text_color=A8AEBF&amp;icon_color=00D4FF&amp;border_color=2A2F3D" alt="kuro"></a>
-  <a href="https://github.com/vastobb/ShadowAuto-Build"><img height="115" src="https://github-readme-stats.vercel.app/api/pin/?username=vastobb&amp;repo=ShadowAuto-Build&amp;bg_color=0B0D13&amp;title_color=9A7DFF&amp;text_color=A8AEBF&amp;icon_color=00D4FF&amp;border_color=2A2F3D" alt="ShadowAuto-Build / Phantom"></a>
-</p>
-
-**`ShadowAuto-Build` → Phantom** — virtual-display automation for AI agents. Real apps run off-screen, driven by tool calls over RPC, with H.264 preview, Paddle-Lite OCR fallback, and a Shizuku-hosted daemon. Ships `phantom-mcp`, so OpenCode can drive a phone like a browser tab.
-<br>`Java · C++ · Python · Svelte · Shizuku`
-
-**`fedora`** — reverse-engineering the LeviLaunchroid native mod loader. Ghidra runs in CI, signatures become candidates, and a validation gate refuses to let any hook ship without runtime evidence.
-<br>`C++ · CMake · Python · Ghidra`
-
-**`onigiri`** — screen-space renderer for Minecraft on Android. Sun-marched shadows, SSR and AO on a rotating sparse pass with temporal reprojection. Every shader is compile-checked in CI as GLSL ES 3.00 before it can reach a phone.
-<br>`Java 25 · GLSL · Fabric · MobileGlues`
-
-<p align="center">
-  <a href="https://github.com/vastobb/fedora"><img height="115" src="https://github-readme-stats.vercel.app/api/pin/?username=vastobb&amp;repo=fedora&amp;bg_color=0B0D13&amp;title_color=9A7DFF&amp;text_color=A8AEBF&amp;icon_color=00D4FF&amp;border_color=2A2F3D" alt="fedora"></a>
-  <a href="https://github.com/vastobb/onigiri"><img height="115" src="https://github-readme-stats.vercel.app/api/pin/?username=vastobb&amp;repo=onigiri&amp;bg_color=0B0D13&amp;title_color=9A7DFF&amp;text_color=A8AEBF&amp;icon_color=00D4FF&amp;border_color=2A2F3D" alt="onigiri"></a>
+  <a href="https://github.com/vastobb/kuro"><b>kuro</b></a> ·
+  <a href="https://github.com/vastobb/ShadowAuto-Build"><b>ShadowAuto-Build</b></a> ·
+  <a href="https://github.com/vastobb/fedora"><b>fedora</b></a> ·
+  <a href="https://github.com/vastobb/onigiri"><b>onigiri</b></a>
 </p>
 
 ### `~$ htop --user=vastobb`
@@ -60,6 +49,8 @@ Android systems tinkerer on Fedora. I build software that makes a phone behave l
   <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=vastobb&amp;layout=compact&amp;hide_border=true&amp;bg_color=0B0D13&amp;title_color=9A7DFF&amp;text_color=A8AEBF&amp;langs_count=8" alt="Top languages">
 </p>
 
+<p align="center"><img src="profile-3d-contrib/profile-night-view.svg" alt="my year, but isometric" width="100%"></p>
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vastobb/vastobb/output/pacman-contribution-graph-dark.svg">
@@ -75,4 +66,29 @@ Android systems tinkerer on Fedora. I build software that makes a phone behave l
 
 <div align="center"><img src="assets/divider.svg" alt="" width="100%"></div>
 
-<div align="center"><img src="assets/footer.svg" alt="loading next build" width="100%"></div>
+<details>
+<summary><b>🕹️ CHEAT CODES</b> — the konami stash &amp; credits</summary>
+
+<br>
+
+| input | effect |
+|---|---|
+| `↑ ↑ ↓ ↓ ← → ← → B A` | respect, but nothing happens… or does it |
+| hover the chips up top | they wake up |
+| hover the cards | they reveal where to go |
+| hover `127.0.0.1:43110` | it tells the truth |
+| view-source this file | there is one more message |
+
+**How this page runs:** hand-computed SVG geometry (`tools/gen_assets.py` in this repo — zero generators, adjust the palette and re-run), [pacman-contribution-graph](https://github.com/abozanona/pacman-contribution-graph) for the arcade games, [github-profile-3d-contrib](https://github.com/yoshi389111/github-profile-3d-contrib) for the isometric year, [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) and [shields.io](https://shields.io) for the readouts. Everything else is SMIL keyframes and stubbornness.
+
+**Achievements unlocked:**
+
+- `◆ WALL BREAKER` — 55k+ lines of android internals, read end to end, no skimming
+- `◆ SIDE QUEST` — every animation here is SMIL; no scripts survive GitHub's sanitizer anyway
+- `◆ NO SLOP` — if it moves, there is a keyframe for it somewhere in this repo
+
+</details>
+
+<div align="center"><img src="assets/cabinet.svg" alt="VASTOBB arcade cabinet playing a mini-game" width="100%"></div>
+
+<!-- ↑↑↓↓←→←→BA -->
