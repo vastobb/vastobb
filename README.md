@@ -81,7 +81,7 @@ Android systems tinkerer on Fedora. I build software that makes a phone behave l
 | hover `127.0.0.1:43110` | it tells the truth |
 | view-source this file | one more message |
 
-**How this page runs:** the hero, cabinet and cards are hand-computed SVG geometry (`tools/gen_assets.py` — one python file, no design tools, no generated images). The arcade is `web/index.html` — a single 40KB HTML file: canvas 2D, a BFS pathfinder for the ghosts, WebAudio square waves for the sound. No engines, no sprite sheets, no dependencies. The rest: [pacman-contribution-graph](https://github.com/abozanona/pacman-contribution-graph) for the daily arcade graphs, [github-profile-3d-contrib](https://github.com/yoshi389111/github-profile-3d-contrib) for the isometric year, [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) + [shields.io](https://shields.io) for the readouts.
+**How this page runs:** the hero, cabinet and cards are hand-computed SVG geometry (`tools/gen_assets.py` — one python file, no design tools, no generated images). The arcade is `docs/index.html` — a single 40KB HTML file: canvas 2D, a BFS pathfinder for the ghosts, WebAudio square waves for the sound. No engines, no sprite sheets, no dependencies. The rest: [pacman-contribution-graph](https://github.com/abozanona/pacman-contribution-graph) for the daily arcade graphs, [github-profile-3d-contrib](https://github.com/yoshi389111/github-profile-3d-contrib) for the isometric year, [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) + [shields.io](https://shields.io) for the readouts.
 
 **Achievements:** `◆ WALL BREAKER` (beat 1337) · `◆ SIDE QUEST` (you read this far) · `◆ NO SLOP` (every animation is a keyframe someone typed)
 
