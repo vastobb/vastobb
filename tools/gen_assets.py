@@ -123,6 +123,7 @@ def hero():
   <radialGradient id="blobC"><stop offset="0" stop-color="{S}" stop-opacity=".34"/><stop offset="1" stop-color="{S}" stop-opacity="0"/></radialGradient>
   <radialGradient id="blobM"><stop offset="0" stop-color="{T}" stop-opacity=".3"/><stop offset="1" stop-color="{T}" stop-opacity="0"/></radialGradient>
   <linearGradient id="metaLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{P}" stop-opacity="0"/><stop offset=".5" stop-color="{P}" stop-opacity=".55"/><stop offset="1" stop-color="{S}" stop-opacity="0"/></linearGradient>
+  <linearGradient id="playg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{P}"/><stop offset="1" stop-color="{S}"/></linearGradient>
   <radialGradient id="vig"><stop offset=".62" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity=".5"/></radialGradient>
   <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="3" height="1" fill="#FFFFFF" opacity="0.035"/></pattern>
   <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter>
@@ -206,6 +207,12 @@ def hero():
 
 <text x="41" y="188" font-size="16" letter-spacing="0.6" fill="{GREY}">android internals · virtual displays · reverse engineering · graphics</text>
 
+<g class="chip">
+  <rect x="878" y="38" width="106" height="26" rx="13" fill="url(#playg)"/>
+  <text x="931" y="55" font-size="12.5" font-weight="700" fill="#0B0D13" text-anchor="middle">▶ PLAY</text>
+  <animate attributeName="opacity" values="1;.75;1" dur="2.2s" repeatCount="indefinite"/>
+</g>
+
 <g>
   <rect x="40" y="214" width="520" height="156" rx="20" fill="#12151D" opacity=".94" stroke="#2A2F3D"/>
   <circle cx="64" cy="229" r="4" fill="{RED}" opacity=".9"/>
@@ -263,7 +270,7 @@ def hero():
 
 <line x1="40" y1="382" x2="984" y2="382" stroke="url(#metaLine)"/>
 <text x="40" y="396" font-size="12" fill="{DIM}">© 2026 · built by hand in a terminal</text>
-<text x="984" y="396" font-size="12" fill="{DIM}" text-anchor="end">amoled · 60fps · retro-m3 — hover the chips</text>
+<text x="984" y="396" font-size="12" fill="{DIM}" text-anchor="end">amoled · 60fps · click anywhere → arcade</text>
 
 <rect width="{w}" height="{h}" fill="url(#vig)" pointer-events="none"/>
 <rect x="0" y="-3" width="{w}" height="{h+6}" fill="url(#scan)" pointer-events="none">
@@ -280,49 +287,73 @@ def hero():
 
 
 # ============================================================= cards.svg ====
-def cards():
-    w, h = 1024, 240
-    defs = {"c1": (40, 12, P, "STAGE 01", "kuro", "isolated app vault · import, run, forget",
-                   "KOTLIN·COMPOSE", "4.8k", "63 files · 5 workflows", "github.com/vastobb/kuro"),
-            "c2": (536, 12, S, "STAGE 02", "ShadowAuto-Build", "virtual displays driven by tool calls",
-                   "JAVA·C++·PY", "42.9k", "268 files · ci pipeline", "github.com/vastobb/ShadowAuto-Build"),
-            "c3": (40, 124, T, "STAGE 03", "fedora", ".so loader RE — ghidra runs in CI",
-                   "C++·PYTHON", "3.0k", "26 files · 2 workflows", "github.com/vastobb/fedora"),
-            "c4": (536, 124, AMBER, "STAGE 04", "onigiri", "temporal renderer for phone GPUs",
-                   "JAVA·GLSL", "4.9k", "32 files · shader gate", "github.com/vastobb/onigiri")}
-    cards_svg = []
-    css = []
-    for cid, (x, y, acc, stage, name, tag, chip, loc, meta, url) in defs.items():
+def card_files():
+    """Four separate hover-reactive cards, each wrapped in a real link in the README."""
+    defs = [
+        ("card-kuro.svg", P, "STAGE 01", "kuro", "isolated app vault · import, run, forget",
+         "KOTLIN·COMPOSE", "4.8k", "63 files · 5 workflows", "github.com/vastobb/kuro", 40, 12),
+        ("card-shadowauto.svg", S, "STAGE 02", "ShadowAuto-Build", "virtual displays driven by tool calls",
+         "JAVA·C++·PY", "42.9k", "268 files · ci pipeline", "github.com/vastobb/ShadowAuto-Build", 40, 12),
+        ("card-fedora.svg", T, "STAGE 03", "fedora", ".so loader RE — ghidra runs in CI",
+         "C++·PYTHON", "3.0k", "26 files · 2 workflows", "github.com/vastobb/fedora", 40, 12),
+        ("card-onigiri.svg", AMBER, "STAGE 04", "onigiri", "temporal renderer for phone GPUs",
+         "JAVA·GLSL", "4.9k", "32 files · shader gate", "github.com/vastobb/onigiri", 40, 12),
+    ]
+    out = []
+    for fname, acc, stage, name, tag, chip, loc, meta, url, x, y in defs:
+        w, h = 488, 104
         chip_w = len(chip) * 7.8 + 20
-        cards_svg.append(f'''
-  <g class="card" id="{cid}">
-    <rect class="frame" x="{x}" y="{y}" width="488" height="104" rx="24" fill="#12151D" stroke="#2A2F3D"/>
-    <rect x="{x+16}" y="{y+20}" width="4" height="64" rx="2" fill="{acc}" opacity=".9"/>
-    <text x="{x+34}" y="{y+27}" font-size="11" letter-spacing="2" fill="{DIM}">{stage}</text>
-    <rect x="{x+458-chip_w:.0f}" y="{y+14}" width="{chip_w:.0f}" height="20" rx="10" fill="{acc}" opacity=".12"/>
-    <text x="{x+458}" y="{y+28}" font-size="10.5" fill="{acc}" text-anchor="end" opacity=".95">{chip}</text>
-    <text x="{x+34}" y="{y+56}" font-size="22" font-weight="700" fill="{INK}">{name}</text>
-    <text x="{x+34}" y="{y+80}" font-size="12" fill="{GREY}">{tag}</text>
-    <text class="url" x="{x+34}" y="{y+97}" font-size="11" fill="#7FE3FF">{url}</text>
-    <g>
-      <text x="{x+458}" y="{y+56}" font-size="21" font-weight="700" fill="{acc}" text-anchor="end">{loc}</text>
-      <text x="{x+458}" y="{y+72}" font-size="10.5" fill="{DIM}" text-anchor="end">loc</text>
-      <text x="{x+458}" y="{y+90}" font-size="10.5" fill="{GREY}" text-anchor="end">{meta}</text>
-    </g>
-  </g>''')
-        css.append(f'#{cid}:hover .frame {{ stroke: {acc}; }}\n#{cid}:hover {{ transform: translateY(-4px); }}')
-    style = ("<style>\n"
-             ".card { transition: transform .28s cubic-bezier(.2,.7,.3,1.1); transform-box: fill-box; transform-origin: center }\n"
-             ".frame { transition: stroke .25s, filter .25s }\n"
-             ".card:hover .frame { filter: drop-shadow(0 6px 16px rgba(0,0,0,.55)) }\n"
-             ".url { opacity: 0; transition: opacity .25s, transform .25s; transform: translateX(-6px) }\n"
-             ".card:hover .url { opacity: 1; transform: translateX(0) }\n"
-             + "\n".join(css) + "\n</style>")
-    join = "\n".join(cards_svg)
-    return f'''{head(w, h, "selected work", "four interactive project cards: hover to light them up")}
+        style = (
+            "<style>\n"
+            ".frame { transition: stroke .25s, filter .25s }\n"
+            ".card:hover .frame { stroke: " + acc + "; filter: drop-shadow(0 6px 16px rgba(0,0,0,.55)) }\n"
+            ".card { transition: transform .28s cubic-bezier(.2,.7,.3,1.1); transform-box: fill-box; transform-origin: center }\n"
+            ".card:hover { transform: translateY(-4px) }\n"
+            ".url { opacity: 0; transition: opacity .25s, transform .25s; transform: translateX(-6px) }\n"
+            ".card:hover .url { opacity: 1; transform: translateX(0) }\n"
+            "</style>")
+        svg = f'''{head(w, h, name + " — project card", stage + ": " + tag)}
 {style}
-<rect width="{w}" height="{h}" fill="none"/>
-{join}
+<g class="card">
+  <rect class="frame" x="0" y="0" width="488" height="104" rx="24" fill="#12151D" stroke="#2A2F3D"/>
+  <rect x="16" y="20" width="4" height="64" rx="2" fill="{acc}" opacity=".9"/>
+  <text x="34" y="27" font-size="11" letter-spacing="2" fill="{DIM}">{stage}</text>
+  <rect x="{458-chip_w:.0f}" y="14" width="{chip_w:.0f}" height="20" rx="10" fill="{acc}" opacity=".12"/>
+  <text x="458" y="28" font-size="10.5" fill="{acc}" text-anchor="end" opacity=".95">{chip}</text>
+  <text x="34" y="56" font-size="22" font-weight="700" fill="{INK}">{name}</text>
+  <text x="34" y="80" font-size="12" fill="{GREY}">{tag}</text>
+  <text class="url" x="34" y="97" font-size="11" fill="#7FE3FF">{url}</text>
+  <text x="458" y="56" font-size="21" font-weight="700" fill="{acc}" text-anchor="end">{loc}</text>
+  <text x="458" y="72" font-size="10.5" fill="{DIM}" text-anchor="end">loc</text>
+  <text x="458" y="90" font-size="10.5" fill="{GREY}" text-anchor="end">{meta}</text>
+</g>
+</svg>
+'''
+        out.append((fname, svg))
+    return out
+
+
+# ============================================================== play.svg ====
+def play_button():
+    w, h = 384, 74
+    return f'''{head(w, h, "press start", "button linking to the live arcade")}
+<style>
+.btnrect {{ transition: filter .25s }}
+.play:hover .btnrect {{ filter: drop-shadow(0 8px 24px rgba(124,77,255,.65)) }}
+.pulse {{ animation: pip 2s ease-in-out infinite }}
+@keyframes pip {{ 0%,100% {{ opacity:.5 }} 50% {{ opacity:1 }} }}
+</style>
+<defs>
+  <linearGradient id="pg" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="{P}"/><stop offset=".55" stop-color="{S}"/><stop offset="1" stop-color="{T}"/>
+  </linearGradient>
+</defs>
+<g class="play" cursor="pointer">
+  <rect class="btnrect" x="0" y="0" width="{w}" height="{h}" rx="24" fill="url(#pg)"/>
+  <rect class="pulse" x="4" y="4" width="{w-8}" height="{h-8}" rx="20" fill="none" stroke="#FFFFFF" stroke-opacity=".35"/>
+  <text x="{w/2}" y="32" font-size="17" font-weight="700" fill="#0B0D13" text-anchor="middle" letter-spacing="2">▶ PRESS START</text>
+  <text x="{w/2}" y="52" font-size="10.5" fill="#0B0D13" text-anchor="middle" opacity=".75" letter-spacing="1">vastobb.github.io/vastobb — real pac-man inside</text>
+</g>
 </svg>
 '''
 
@@ -493,8 +524,14 @@ def divider():
 '''
 
 
-for name, fn in (("hero.svg", hero), ("cards.svg", cards), ("cabinet.svg", cabinet), ("divider.svg", divider)):
+builders = [("hero.svg", hero), ("cabinet.svg", cabinet), ("divider.svg", divider), ("play.svg", play_button)]
+for name, fn in builders:
     path = os.path.join(OUT, name)
     with open(path, "w", encoding="utf-8") as f:
         f.write(fn())
+    print("wrote", os.path.normpath(path), os.path.getsize(path), "bytes")
+for name, svg in card_files():
+    path = os.path.join(OUT, name)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(svg)
     print("wrote", os.path.normpath(path), os.path.getsize(path), "bytes")

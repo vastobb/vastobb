@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="384" height="74" viewBox="0 0 384 74" role="img" font-family='ui-monospace, &quot;SFMono-Regular&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;, monospace'>
+<title>press start</title><desc>button linking to the live arcade</desc>
+<style>
+.btnrect { transition: filter .25s }
+.play:hover .btnrect { filter: drop-shadow(0 8px 24px rgba(124,77,255,.65)) }
+.pulse { animation: pip 2s ease-in-out infinite }
+@keyframes pip { 0%,100% { opacity:.5 } 50% { opacity:1 } }
+</style>
+<defs>
+  <linearGradient id="pg" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#7C4DFF"/><stop offset=".55" stop-color="#00D4FF"/><stop offset="1" stop-color="#33E1B5"/>
+  </linearGradient>
+</defs>
+<g class="play" cursor="pointer">
+  <rect class="btnrect" x="0" y="0" width="384" height="74" rx="24" fill="url(#pg)"/>
+  <rect class="pulse" x="4" y="4" width="376" height="66" rx="20" fill="none" stroke="#FFFFFF" stroke-opacity=".35"/>
+  <text x="192.0" y="32" font-size="17" font-weight="700" fill="#0B0D13" text-anchor="middle" letter-spacing="2">▶ PRESS START</text>
+  <text x="192.0" y="52" font-size="10.5" fill="#0B0D13" text-anchor="middle" opacity=".75" letter-spacing="1">vastobb.github.io/vastobb — real pac-man inside</text>
+</g>
+</svg>

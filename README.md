@@ -1,26 +1,26 @@
 <div align="center">
 
-<img src="assets/hero.svg" alt="VASTOBB — android internals, virtual displays, reverse engineering, graphics" width="100%">
+<a href="https://vastobb.github.io/vastobb/"><img src="assets/hero.svg" alt="VASTOBB — click to enter the arcade" width="100%"></a>
+
+<a href="https://vastobb.github.io/vastobb/"><img src="assets/play.svg" alt="PRESS START — play the arcade" width="360"></a>
 
 </div>
 
 ### `~$ whoami`
 
-Android systems tinkerer on Fedora. I build software that makes a phone behave like a server: isolated app vaults, off-screen virtual displays, native mod loaders, and a renderer that has to survive a GLES driver. Everything here builds in CI on purpose — most of it gets written from a tethered terminal.
+Android systems tinkerer on Fedora. I build software that makes a phone behave like a server: isolated app vaults, off-screen virtual displays, native mod loaders, and a renderer that has to survive a GLES driver. Everything above is fake — the button is real. It boots a CRT, then it hands you a Pac-Man with hunting ghosts.
 
 <div align="center"><img src="assets/divider.svg" alt="" width="100%"></div>
 
 ### `~$ ls ~/projects`
 
-<div align="center"><img src="assets/cards.svg" alt="kuro, ShadowAuto-Build, fedora, onigiri" width="100%"></div>
-
-<p align="center"><sub>hover the cards — they light up</sub></p>
-
 <p align="center">
-  <a href="https://github.com/vastobb/kuro"><b>kuro</b></a> ·
-  <a href="https://github.com/vastobb/ShadowAuto-Build"><b>ShadowAuto-Build</b></a> ·
-  <a href="https://github.com/vastobb/fedora"><b>fedora</b></a> ·
-  <a href="https://github.com/vastobb/onigiri"><b>onigiri</b></a>
+  <a href="https://github.com/vastobb/kuro"><img src="assets/card-kuro.svg" width="47%" alt="kuro"></a>
+  <a href="https://github.com/vastobb/ShadowAuto-Build"><img src="assets/card-shadowauto.svg" width="47%" alt="ShadowAuto-Build / Phantom"></a>
+</p>
+<p align="center">
+  <a href="https://github.com/vastobb/fedora"><img src="assets/card-fedora.svg" width="47%" alt="fedora"></a>
+  <a href="https://github.com/vastobb/onigiri"><img src="assets/card-onigiri.svg" width="47%" alt="onigiri"></a>
 </p>
 
 ### `~$ htop --user=vastobb`
@@ -67,28 +67,28 @@ Android systems tinkerer on Fedora. I build software that makes a phone behave l
 <div align="center"><img src="assets/divider.svg" alt="" width="100%"></div>
 
 <details>
-<summary><b>🕹️ CHEAT CODES</b> — the konami stash &amp; credits</summary>
+<summary><b>🕹️ CHEAT CODES</b> — what actually happens when you press things</summary>
 
 <br>
 
-| input | effect |
+| input | result |
 |---|---|
-| `↑ ↑ ↓ ↓ ← → ← → B A` | respect, but nothing happens… or does it |
-| hover the chips up top | they wake up |
-| hover the cards | they reveal where to go |
+| **▶ PRESS START** (top of page) | boots a real CRT arcade — Pac-Man with 4 hunting ghosts, Breakout, square-wave chiptunes, zero assets |
+| `↑ ↑ ↓ ↓ ← → ← → B A` | **does something here.** rainbow mode. the ghosts change color. respect |
+| score past `1337` in the arcade | `◆ WALL BREAKER` — it calls you out |
+| hover the chips in the hero | they wake up |
+| hover a project card | it lifts and shows you where to go |
 | hover `127.0.0.1:43110` | it tells the truth |
-| view-source this file | there is one more message |
+| view-source this file | one more message |
 
-**How this page runs:** hand-computed SVG geometry (`tools/gen_assets.py` in this repo — zero generators, adjust the palette and re-run), [pacman-contribution-graph](https://github.com/abozanona/pacman-contribution-graph) for the arcade games, [github-profile-3d-contrib](https://github.com/yoshi389111/github-profile-3d-contrib) for the isometric year, [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) and [shields.io](https://shields.io) for the readouts. Everything else is SMIL keyframes and stubbornness.
+**How this page runs:** the hero, cabinet and cards are hand-computed SVG geometry (`tools/gen_assets.py` — one python file, no design tools, no generated images). The arcade is `web/index.html` — a single 40KB HTML file: canvas 2D, a BFS pathfinder for the ghosts, WebAudio square waves for the sound. No engines, no sprite sheets, no dependencies. The rest: [pacman-contribution-graph](https://github.com/abozanona/pacman-contribution-graph) for the daily arcade graphs, [github-profile-3d-contrib](https://github.com/yoshi389111/github-profile-3d-contrib) for the isometric year, [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) + [shields.io](https://shields.io) for the readouts.
 
-**Achievements unlocked:**
-
-- `◆ WALL BREAKER` — 55k+ lines of android internals, read end to end, no skimming
-- `◆ SIDE QUEST` — every animation here is SMIL; no scripts survive GitHub's sanitizer anyway
-- `◆ NO SLOP` — if it moves, there is a keyframe for it somewhere in this repo
+**Achievements:** `◆ WALL BREAKER` (beat 1337) · `◆ SIDE QUEST` (you read this far) · `◆ NO SLOP` (every animation is a keyframe someone typed)
 
 </details>
 
-<div align="center"><img src="assets/cabinet.svg" alt="VASTOBB arcade cabinet playing a mini-game" width="100%"></div>
+<p align="center">
+  <a href="https://vastobb.github.io/vastobb/"><img src="assets/cabinet.svg" alt="click the cabinet — it actually plays" width="100%"></a>
+</p>
 
 <!-- ↑↑↓↓←→←→BA -->
